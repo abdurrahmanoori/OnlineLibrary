@@ -27,6 +27,8 @@ namespace OnlineLibrary.Models
 
         public string Author { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         [Display(Name ="Category Name")]
         public int CategoryId { get; set; }
 
@@ -35,7 +37,7 @@ namespace OnlineLibrary.Models
         public Category Category { get; set; }
 
         [Display(Name ="Language")]
-        public string LanguageId { get; set; }
+        public int LanguageId { get; set; }
 
         [ValidateNever]
         [ForeignKey(name:"LangaugeId")]

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
+using OnlineLibrary.Models;
 
 namespace OnlineLibrary.Controllers
 {
@@ -20,7 +20,12 @@ namespace OnlineLibrary.Controllers
 
         public IActionResult Index( )
         {
+
+          
             return View();
+            
+
+
         }
 
         public IActionResult Privacy( )
