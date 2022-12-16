@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using OnlineLibrary.Data;
 using OnlineLibrary.DataAccess.Repository.IRepository;
 using OnlineLibrary.DataAccess.Repository;
+using OnlineLibrary.Models;
 
 namespace OnlineLibrary
 {
@@ -42,6 +43,9 @@ namespace OnlineLibrary
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDbContext<OnlineLibraryContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("OnlineLibraryContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

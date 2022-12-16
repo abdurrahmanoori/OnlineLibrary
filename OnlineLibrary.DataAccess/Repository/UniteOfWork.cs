@@ -14,9 +14,12 @@ namespace OnlineLibrary.DataAccess.Repository
         {
             _db = db;
             CategoryType = new CategoryTypeRepository(_db);
+            Category = new CategoryRepository(_db);
 
         }
         public ICategoryTypeRepository CategoryType { get; private set; }
+        public ICategoryRepository Category { get; private set; }
+
 
         public void SaveChanges( )
         {

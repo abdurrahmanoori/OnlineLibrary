@@ -8,6 +8,8 @@ namespace OnlineLibrary.DataAccess.Repository.IRepository
     {
         ICategoryTypeRepository CategoryType { get; }
 
+        ICategoryRepository Category { get; }
+
         void SaveChanges();
 
         //ICompanyRepository Company { get; }
