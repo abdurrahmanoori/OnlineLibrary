@@ -9,6 +9,7 @@ using OnlineLibrary.Models;
 
 namespace OnlineLibrary.Controllers
 {
+    [Area("Customer")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -21,11 +22,7 @@ namespace OnlineLibrary.Controllers
         public IActionResult Index( )
         {
 
-          
             return View();
-            
-
-
         }
 
         public IActionResult Privacy( )

@@ -6,10 +6,9 @@ namespace OnlineLibrary.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork
     {
-        ICategoryTypeRepository Category { get; }
+        ICategoryTypeRepository CategoryType { get; }
 
-
-        void Save( );
+        void SaveChanges();
 
         //ICompanyRepository Company { get; }
         //IApplicationUserRepository ApplicationUser { get; }

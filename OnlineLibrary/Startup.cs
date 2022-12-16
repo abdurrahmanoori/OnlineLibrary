@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineLibrary.Data;
+using OnlineLibrary.DataAccess.Repository.IRepository;
+using OnlineLibrary.DataAccess.Repository;
 
 namespace OnlineLibrary
 {
@@ -27,14 +29,15 @@ namespace OnlineLibrary
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDefaultIdentity<IdentityUser>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             services.AddControllersWithViews();
@@ -66,9 +69,9 @@ namespace OnlineLibrary
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            //pattern: "{Area=Customer}/{controller=Home}/{action=Index}/{id?}");
-            endpoints.MapRazorPages();
+               //     pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{Area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

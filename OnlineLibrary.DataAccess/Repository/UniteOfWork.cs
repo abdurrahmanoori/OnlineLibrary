@@ -13,15 +13,19 @@ namespace OnlineLibrary.DataAccess.Repository
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            //Category = new ICategoryRepository(_db);
+            CategoryType = new CategoryTypeRepository(_db);
 
         }
-       // public ICategoryRepository Category { get; private set; }
+        public ICategoryTypeRepository CategoryType { get; private set; }
 
-        public void Save( )
+        public void SaveChanges( )
         {
             _db.SaveChanges();
         }
 
+        //void IUnitOfWork.SaveChanges( )
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
