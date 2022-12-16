@@ -10,6 +10,8 @@ namespace OnlineLibrary.DataAccess.Repository.IRepository
 
         ICategoryRepository Category { get; }
 
+        ILanguageRepository Language { get; }
+
         void SaveChanges();
 
         //ICompanyRepository Company { get; }
